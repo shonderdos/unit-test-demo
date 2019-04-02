@@ -20,6 +20,8 @@ describe('CounterComponent', () => {
     component = fixture.nativeElement;
     element = fixture.debugElement.query(By.css('p'));
     htmlElement = element.nativeElement;
+
+    fixture.detectChanges();
   });
 
   it('should decrement counter by one', () => {
