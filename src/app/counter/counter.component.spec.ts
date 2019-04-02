@@ -30,6 +30,24 @@ describe('CounterComponent', () => {
     expect(startValue).toBe('Number: 1');
   });
 
+  it('should display correct number after increasing once', () => {
+    component.increment();
+    fixture.detectChanges();
+
+    const endValue = htmlElement.textContent;
+
+    expect(endValue).toBe('Number: 2');
+  });
+
+  it('should display correct number after decreasing once', () => {
+    component.decrement();
+    fixture.detectChanges();
+
+    const endValue = htmlElement.textContent;
+
+    expect(endValue).toBe('Number: 0');
+  });
+
   it('should increase counter by one', () => {
     const startValue = component.counter;
 
