@@ -17,17 +17,37 @@ describe('CounterComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CounterComponent);
-    component = fixture.nativeElement;
+    component = fixture.componentInstance;
     element = fixture.debugElement.query(By.css('p'));
     htmlElement = element.nativeElement;
 
     fixture.detectChanges();
   });
 
-  it('should decrement counter by one', () => {
+  it('should display correct number initially', () => {
     const startValue = htmlElement.textContent;
 
     expect(startValue).toBe('Number: 1');
+  });
+
+  it('should increase counter by one', () => {
+    const startValue = component.counter;
+
+    component.increment();
+
+    const endValue = component.counter;
+
+    expect(startValue).toBeLessThan(endValue);
+  });
+
+  it('should reduce counter by one', () => {
+    const startValue = component.counter;
+
+    component.decrement();
+
+    const endValue = component.counter;
+
+    expect(startValue).toBeGreaterThan(endValue);
   });
 
 });
